@@ -53,6 +53,8 @@
   background: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark-blue-light) 100%);
   padding: 7rem 1.5rem 4rem;
   min-height: 100vh;
+  /* Use small viewport height to avoid mobile browser chrome causing overflow */
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -375,6 +377,7 @@
   display: grid;
   gap: 1.5rem;
   margin-top: 2rem;
+  align-items: stretch;
 }
 
 .testimonialCard {
@@ -383,6 +386,9 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  display: flex;
+  /* Keep cards a consistent, responsive height so mixed-size images align */
+  height: min(70svh, clamp(260px, 32vw, 520px));
 }
 
 .testimonialCard:hover {
@@ -391,14 +397,18 @@
 
 .testimonialImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  /* Fill the card (removes side white-bars); may crop slightly if aspect ratios differ */
+  object-fit: cover;
+  object-position: center;
 }
 
 .googleReviewsGrid {
   display: grid;
   gap: 1rem;
   margin-top: 2rem;
+  align-items: stretch;
 }
 
 .googleReviewCard {
@@ -406,12 +416,145 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* Social/review screenshots: keep fully visible (no cropping) in a readable frame */
+  padding: 0.75rem;
+  height: min(30svh, clamp(140px, 14vw, 240px));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.googleReviewCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.googleReviewCard:focus {
+  outline: 2px solid var(--lime-green);
+  outline-offset: 2px;
 }
 
 .googleReviewImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  /* Do NOT crop text-heavy screenshots */
+  object-fit: contain;
+  object-position: center;
+  background: var(--white);
+}
+
+/* Modal for full-size image viewing */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  position: relative;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modalClose {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: var(--white);
+  color: var(--dark-blue);
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2001;
+}
+
+.modalClose:hover {
+  background: var(--lime-green);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.modalImage {
+  max-width: calc(95vw - 8rem);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  flex-shrink: 1;
+}
+
+.modalNavButton {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--dark-blue);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2001;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.modalNavButton:hover {
+  background: var(--lime-green);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.modalNavButtonRight {
+  /* No special positioning needed - flexbox handles it */
+}
+
+.modalCounter {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 2001;
 }
 
 /* Eligibility */
@@ -645,6 +788,7 @@
   justify-content: center;
   gap: 2rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .footerLink {
@@ -658,6 +802,88 @@
 }
 
 /* Responsive */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    height: 38px;
+  }
+
+  .headerCta {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 6.25rem 1rem 3rem;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .faqQuestion {
+    padding: 1rem 1.25rem;
+  }
+
+  .summaryContent {
+    padding: 1.5rem;
+  }
+
+  .contactFormPlaceholder {
+    padding: 2rem 1.25rem;
+    min-height: 280px;
+  }
+
+  .footerLinks {
+    gap: 1rem;
+  }
+
+  .modalContent {
+    gap: 0.5rem;
+    max-width: 98vw;
+  }
+
+  .modalNavButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .modalImage {
+    max-width: calc(98vw - 6rem);
+  }
+
+  .modalClose {
+    top: -2rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .modalCounter {
+    bottom: -2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Phone: keep media tiles readable without taking over the whole screen */
+@media (max-width: 639px) {
+  .testimonialCard {
+    height: min(55svh, 420px);
+  }
+
+  .googleReviewCard {
+    height: min(28svh, 200px);
+  }
+}
+
 @media (min-width: 640px) {
   .heroHeadline {
     font-size: 2.25rem;
@@ -680,13 +906,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .googleReviewCard {
+    height: min(30svh, 220px);
+  }
+}
+
 @media (min-width: 768px) {
   .header {
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
   }
   
   .hero {
-    padding: 8rem 3rem 5rem;
+    padding: 8rem 2rem 5rem;
   }
   
   .heroHeadline {
@@ -694,7 +926,7 @@
   }
   
   .section {
-    padding: 5rem 3rem;
+    padding: 5rem 2rem;
   }
   
   .sectionTitle {
@@ -715,6 +947,18 @@
 }
 
 @media (min-width: 1024px) {
+  .header {
+    padding: 1rem 3rem;
+  }
+
+  .hero {
+    padding: 8rem 3rem 5rem;
+  }
+
+  .section {
+    padding: 5rem 3rem;
+  }
+
   .heroHeadline {
     font-size: 2.75rem;
   }

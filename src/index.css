@@ -8,6 +8,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Account for fixed header when navigating to in-page anchors */
+:root {
+  --header-offset: 90px;
+  scroll-padding-top: var(--header-offset);
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-offset: 76px;
+  }
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;

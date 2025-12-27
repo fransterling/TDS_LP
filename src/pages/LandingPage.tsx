@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from './LandingPage.module.css';
 
 // Image URLs
@@ -278,6 +278,61 @@ function WhyChooseUs() {
 }
 
 function SuccessStories() {
+  const [modalImageIndex, setModalImageIndex] = useState<number | null>(null);
+
+  const googleReviews = [
+    { src: IMAGES.googleReview38k, alt: 'Google review - $38k saved' },
+    { src: IMAGES.googleReview37k, alt: 'Google review - $37k saved' },
+    { src: IMAGES.googleReviewOIC, alt: 'Google review - Offer in Compromise success' },
+    { src: IMAGES.googleReview2, alt: 'Google review' },
+    { src: IMAGES.googleReview3, alt: 'Google review' },
+    { src: IMAGES.googleReview6, alt: 'Google review' },
+  ];
+
+  const openModal = (index: number) => {
+    setModalImageIndex(index);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = useCallback(() => {
+    setModalImageIndex(null);
+    document.body.style.overflow = '';
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    if (modalImageIndex !== null) {
+      const newIndex = modalImageIndex === 0 ? googleReviews.length - 1 : modalImageIndex - 1;
+      setModalImageIndex(newIndex);
+    }
+  }, [modalImageIndex, googleReviews.length]);
+
+  const goToNext = useCallback(() => {
+    if (modalImageIndex !== null) {
+      const newIndex = modalImageIndex === googleReviews.length - 1 ? 0 : modalImageIndex + 1;
+      setModalImageIndex(newIndex);
+    }
+  }, [modalImageIndex, googleReviews.length]);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    if (modalImageIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goToPrevious();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goToNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalImageIndex, closeModal, goToPrevious, goToNext]);
+
   return (
     <section className={`${styles.section} ${styles.sectionDark}`}>
       <div className={styles.container}>
@@ -320,49 +375,70 @@ function SuccessStories() {
         </h3>
         
         <div className={styles.googleReviewsGrid}>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReview38k} 
-              alt="Google review - $38k saved" 
-              className={styles.googleReviewImage}
-            />
-          </article>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReview37k} 
-              alt="Google review - $37k saved" 
-              className={styles.googleReviewImage}
-            />
-          </article>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReviewOIC} 
-              alt="Google review - Offer in Compromise success" 
-              className={styles.googleReviewImage}
-            />
-          </article>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReview2} 
-              alt="Google review" 
-              className={styles.googleReviewImage}
-            />
-          </article>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReview3} 
-              alt="Google review" 
-              className={styles.googleReviewImage}
-            />
-          </article>
-          <article className={styles.googleReviewCard}>
-            <img 
-              src={IMAGES.googleReview6} 
-              alt="Google review" 
-              className={styles.googleReviewImage}
-            />
-          </article>
+          {googleReviews.map((review, index) => (
+            <article 
+              key={index}
+              className={styles.googleReviewCard}
+              onClick={() => openModal(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openModal(index);
+                }
+              }}
+            >
+              <img 
+                src={review.src} 
+                alt={review.alt} 
+                className={styles.googleReviewImage}
+              />
+            </article>
+          ))}
         </div>
+
+        {modalImageIndex !== null && (
+          <div className={styles.modalOverlay} onClick={closeModal}>
+            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+              <button 
+                className={styles.modalClose}
+                onClick={closeModal}
+                aria-label="Close modal"
+              >
+                ×
+              </button>
+              <button
+                className={styles.modalNavButton}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevious();
+                }}
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <img 
+                src={googleReviews[modalImageIndex].src} 
+                alt={googleReviews[modalImageIndex].alt} 
+                className={styles.modalImage}
+              />
+              <button
+                className={`${styles.modalNavButton} ${styles.modalNavButtonRight}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                aria-label="Next image"
+              >
+                ›
+              </button>
+              <div className={styles.modalCounter}>
+                {modalImageIndex + 1} / {googleReviews.length}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div style={{ textAlign: 'center' }}>
           <a href="#contact" className={styles.ctaButton}>
