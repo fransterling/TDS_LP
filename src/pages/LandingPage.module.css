@@ -25,11 +25,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .logo {
   height: 45px;
   width: auto;
+}
+
+.headerCenterImage {
+  height: 45px;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .headerCta {

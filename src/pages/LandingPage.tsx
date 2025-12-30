@@ -4,6 +4,7 @@ import styles from './LandingPage.module.css';
 // Image URLs
 const IMAGES = {
   logo: 'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmstJbNPhcYA5KZCWdugMRDEPm3VrOypoLjnea',
+  headerCenter: 'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmrddCYEA0iKQfCPA7gOHImoX1LYTUSjGvhaNF',
   testimonial159k: 'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmuRBweNTqEfkda2LnZQ7zCG3cYI156OWg9XxD',
   testimonial9976: 'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4Am3jTOl2zshnwOWGmPbL2VRdZNuF8BKvjxkISJ',
   testimonial9900: 'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmTDh7mufeGTv1hAgHoyLJKdcnia4FrYkujD2e',
@@ -134,6 +135,7 @@ function Header() {
       <a href="#hero">
         <img src={IMAGES.logo} alt="Tax Debt Services" className={styles.logo} />
       </a>
+      <img src={IMAGES.headerCenter} alt="Center banner" className={styles.headerCenterImage} />
       <a href="#contact" className={styles.headerCta}>
         Get Started
       </a>
