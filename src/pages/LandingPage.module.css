@@ -814,15 +814,22 @@
 @media (max-width: 480px) {
   .header {
     padding: 0.75rem 1rem;
+    justify-content: center;
+    gap: 1.5rem;
   }
 
   .logo {
     height: 38px;
   }
 
+  .headerCenterImage {
+    height: 38px;
+    position: static;
+    transform: none;
+  }
+
   .headerCta {
-    padding: 0.55rem 0.9rem;
-    font-size: 0.85rem;
+    display: none;
   }
 
   .hero {
