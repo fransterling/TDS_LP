@@ -160,9 +160,7 @@ function Hero() {
         <p className={styles.heroCtaSubtext}>100% Complimentary Consultation. No Commitments.</p>
         
         <div className={styles.mediaFeatures}>
-          <span className={styles.mediaBadge}>Media Feature</span>
-          <span className={styles.mediaBadge}>Media Feature</span>
-          <span className={styles.mediaBadge}>Media Feature</span>
+          <div dangerouslySetInnerHTML={{ __html: '[trustindex data-widget-id=a6914775428f54863e0686a7eef]' }} />
         </div>
       </div>
     </section>
