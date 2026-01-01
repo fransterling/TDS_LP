@@ -581,6 +581,12 @@ function Summary() {
             An Offer in Compromise is an official IRS program that allows qualified taxpayers to settle tax debt for less than the full amount owed. It works when the IRS determines that collecting the full balance is unlikely based on income, expenses, and assets. When structured correctly, it can stop collection activity and provide a faster and more affordable resolution than years of payments and penalties. Not everyone qualifies, which is why the first step is a free consultation. We review your situation, explain your options, and determine whether an Offer in Compromise makes sense before any commitment is made, or does it make more sense to go with one of our other options to help you with your tax debt.
           </p>
         </div>
+        <div style={{ textAlign: 'center' }}>
+          <a href="#contact" className={styles.ctaButton}>
+            Apply To See If You Qualify
+          </a>
+          <p className={styles.ctaSubtext}>100% Complimentary Consultation. No Commitments.</p>
+        </div>
       </div>
     </section>
   );
