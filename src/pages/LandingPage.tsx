@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './LandingPage.module.css';
+import ComparisonTable from '../components/ComparisonTable';
 
 // Image URLs
 const IMAGES = {
@@ -641,6 +642,7 @@ export default function LandingPage() {
         <SuccessStories />
         <Eligibility />
         <AboutUs />
+        <ComparisonTable />
         <FAQ />
         <Summary />
         <ContactForm />
