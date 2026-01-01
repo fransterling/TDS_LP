@@ -60,7 +60,7 @@
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark-blue-light) 100%);
-  padding: 7rem 1.5rem 4rem;
+  padding: 7rem 1.5rem 2rem;
   min-height: 100vh;
   /* Use small viewport height to avoid mobile browser chrome causing overflow */
   min-height: 100svh;
@@ -946,7 +946,7 @@
   }
 
   .hero {
-    padding: 6.25rem 1rem 3rem;
+    padding: 6.25rem 1rem 1.5rem;
   }
 
   .heroPlaceholders {
@@ -1057,7 +1057,7 @@
   }
 
   .hero {
-    padding: 8rem 2rem 5rem;
+    padding: 8rem 2rem 2rem;
   }
 
   .heroAttention {
@@ -1091,7 +1091,7 @@
   }
 
   .hero {
-    padding: 8rem 3rem 5rem;
+    padding: 8rem 3rem 2rem;
     min-height: auto;
   }
 
