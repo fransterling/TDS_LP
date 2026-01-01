@@ -49,12 +49,23 @@
   font-weight: 600;
   font-size: 0.9rem;
   border: none;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .headerCta:hover {
   background: var(--orange-hover);
   transform: translateY(-2px);
+}
+
+.headerCta:active {
+  transform: translateY(0);
+  background: var(--orange-hover);
 }
 
 /* Hero Section */
@@ -126,15 +137,25 @@
   font-weight: 700;
   font-size: 1.1rem;
   border: none;
+  min-height: 48px;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 15px rgba(243, 112, 33, 0.4);
+  cursor: pointer;
+  text-align: center;
 }
 
 .heroCta:hover {
   background: var(--orange-hover);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(243, 112, 33, 0.5);
+}
+
+.heroCta:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(243, 112, 33, 0.4);
 }
 
 .heroCtaSubtext {
@@ -788,6 +809,11 @@
   background: var(--gray-light);
 }
 
+.faqQuestion:focus-visible {
+  outline: 3px solid var(--lime-green);
+  outline-offset: -3px;
+}
+
 .faqIcon {
   color: var(--lime-green);
   font-size: 1.5rem;
@@ -804,6 +830,18 @@
   font-size: 0.95rem;
   color: var(--gray);
   line-height: 1.8;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Summary */
@@ -860,7 +898,9 @@
 
 /* CTA Button (reusable) */
 .ctaButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--orange);
   color: var(--white);
   padding: 1rem 2rem;
@@ -868,15 +908,29 @@
   font-weight: 700;
   font-size: 1rem;
   border: none;
+  min-height: 48px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(243, 112, 33, 0.3);
   margin-top: 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .ctaButton:hover {
   background: var(--orange-hover);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(243, 112, 33, 0.4);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(243, 112, 33, 0.3);
+}
+
+.ctaButton:focus-visible {
+  outline: 3px solid var(--lime-green);
+  outline-offset: 3px;
 }
 
 .ctaSubtext {
@@ -925,6 +979,49 @@
 }
 
 /* Responsive */
+
+/* Extra Small Devices (320px - 374px) */
+@media (max-width: 374px) {
+  .heroAttention {
+    font-size: 0.9rem;
+  }
+
+  .heroHeadline {
+    font-size: 1.65rem;
+    line-height: 1.4;
+  }
+
+  .sectionTitle {
+    font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  .serviceTitle {
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 2.5rem 0.875rem;
+  }
+
+  .heroCta,
+  .ctaButton {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.95rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .whyCardTitle {
+    font-size: 1rem;
+  }
+}
+
+/* Small Devices (375px - 480px) */
 @media (max-width: 480px) {
   .header {
     padding: 0.75rem 1rem;
@@ -950,6 +1047,25 @@
     padding: 6.25rem 1rem 1.5rem;
   }
 
+  .heroAttention {
+    font-size: 0.95rem;
+  }
+
+  .heroHeadline {
+    font-size: 1.75rem;
+    line-height: 1.4;
+  }
+
+  .heroSubheadline {
+    font-size: 1.05rem;
+  }
+
+  .heroCta {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem 2rem;
+  }
+
   .heroPlaceholders {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.05rem;
@@ -964,16 +1080,49 @@
     padding: 3rem 1rem;
   }
 
+  .sectionTitle {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
   .serviceCard {
     padding: 1.5rem;
   }
 
+  .serviceTitle {
+    font-size: 1.1rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem 2rem;
+  }
+
   .faqQuestion {
     padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .faqAnswer {
+    font-size: 0.9rem;
   }
 
   .summaryContent {
     padding: 1.5rem;
+  }
+
+  .summaryText {
+    font-size: 1rem;
   }
 
   .contactFormPlaceholder {
@@ -982,7 +1131,16 @@
   }
 
   .footerLinks {
-    gap: 1rem;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLink {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
   }
 
   .modalContent {
@@ -991,25 +1149,49 @@
   }
 
   .modalNavButton {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
     font-size: 1.5rem;
   }
 
   .modalImage {
-    max-width: calc(98vw - 6rem);
+    max-width: calc(98vw - 6.5rem);
   }
 
   .modalClose {
     top: -2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
     font-size: 1.25rem;
   }
 
   .modalCounter {
     bottom: -2rem;
     font-size: 0.8rem;
+  }
+
+  .whyCardTitle {
+    font-size: 1.05rem;
+  }
+
+  .whyCardText {
+    font-size: 0.9rem;
+  }
+
+  .oicText {
+    font-size: 1rem;
+  }
+
+  .aboutText {
+    font-size: 1rem;
+  }
+
+  .eligibilityDescription {
+    font-size: 0.95rem;
+  }
+
+  .eligibilityText {
+    font-size: 0.95rem;
   }
 }
 

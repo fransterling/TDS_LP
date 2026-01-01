@@ -134,9 +134,9 @@ function Header() {
   return (
     <header className={styles.header}>
       <a href="#hero">
-        <img src={IMAGES.logo} alt="Tax Debt Services" className={styles.logo} />
+        <img src={IMAGES.logo} alt="Tax Debt Services" className={styles.logo} loading="eager" />
       </a>
-      <img src={IMAGES.headerCenter} alt="Center banner" className={styles.headerCenterImage} />
+      <img src={IMAGES.headerCenter} alt="Center banner" className={styles.headerCenterImage} loading="eager" />
       <a href="#contact" className={styles.headerCta}>
         Apply To See If You Qualify
       </a>
@@ -170,6 +170,7 @@ function Hero() {
               src="https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmHcGuqpmsZYXMKcSLkt450ofygDRJdPn8NhVi"
               alt="Tax debt relief testimonial"
               className={styles.heroPlaceholderImage}
+              loading="eager"
             />
           </div>
           <div className={styles.heroHighlightFrame}>
@@ -242,6 +243,7 @@ function Benefits() {
                 src={imageUrl}
                 alt={`Benefit ${index + 1}`}
                 className={styles.benefitImage}
+                loading="lazy"
               />
             </div>
           ))}
@@ -359,24 +361,27 @@ function SuccessStories() {
         
         <div className={styles.testimonialsGrid}>
           <article className={styles.testimonialCard}>
-            <img 
-              src={IMAGES.testimonial159k} 
-              alt="Client saved $159,000 in tax debt" 
+            <img
+              src={IMAGES.testimonial159k}
+              alt="Client saved $159,000 in tax debt"
               className={styles.testimonialImage}
+              loading="lazy"
             />
           </article>
           <article className={styles.testimonialCard}>
-            <img 
-              src={IMAGES.testimonial9976} 
-              alt="Client saved $9,976 in tax debt" 
+            <img
+              src={IMAGES.testimonial9976}
+              alt="Client saved $9,976 in tax debt"
               className={styles.testimonialImage}
+              loading="lazy"
             />
           </article>
           <article className={styles.testimonialCard}>
-            <img 
-              src={IMAGES.testimonial9900} 
-              alt="Client saved $9,900 in tax debt" 
+            <img
+              src={IMAGES.testimonial9900}
+              alt="Client saved $9,900 in tax debt"
               className={styles.testimonialImage}
+              loading="lazy"
             />
           </article>
         </div>
@@ -387,7 +392,7 @@ function SuccessStories() {
         
         <div className={styles.googleReviewsGrid}>
           {googleReviews.map((review, index) => (
-            <article 
+            <article
               key={index}
               className={styles.googleReviewCard}
               onClick={() => openModal(index)}
@@ -400,10 +405,11 @@ function SuccessStories() {
                 }
               }}
             >
-              <img 
-                src={review.src} 
-                alt={review.alt} 
+              <img
+                src={review.src}
+                alt={review.alt}
                 className={styles.googleReviewImage}
+                loading="lazy"
               />
             </article>
           ))}
@@ -619,10 +625,10 @@ function ContactForm() {
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className={styles.footer}>
-      <img src={IMAGES.logo} alt="Tax Debt Services" className={styles.footerLogo} />
+      <img src={IMAGES.logo} alt="Tax Debt Services" className={styles.footerLogo} loading="lazy" />
       <p className={styles.footerText}>
         © {currentYear} Tax Debt Services. All rights reserved.
       </p>
