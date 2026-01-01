@@ -305,6 +305,28 @@
   display: grid;
   gap: 1.5rem;
   margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.benefitImageCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.benefitImageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.benefitImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .benefitCard {
@@ -945,7 +967,7 @@
   .header {
     padding: 1rem 2rem;
   }
-  
+
   .hero {
     padding: 8rem 2rem 5rem;
   }
@@ -957,24 +979,20 @@
   .heroHeadline {
     font-size: 2.4rem;
   }
-  
+
   .section {
     padding: 5rem 2rem;
   }
-  
+
   .sectionTitle {
     font-size: 2.25rem;
   }
-  
+
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .whyGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .benefitsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

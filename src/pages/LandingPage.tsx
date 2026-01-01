@@ -45,11 +45,11 @@ const services = [
   },
 ];
 
-const benefits = [
-  'Reduce your total tax balance to an amount the IRS agrees is realistically collectible',
-  'Pause or stop aggressive collection actions during review',
-  'Resolve your tax problem in months instead of dragging it out for years',
-  'Give you a clear, final resolution approved by the IRS',
+const benefitImages = [
+  'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmjYGOWe4Csc6OIeX8B2wbHaVmyDRMQW9gdP0N',
+  'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmhjzFETyH60REYoGmnkCyvctf5bArgTXO2FLM',
+  'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4AmqRkXU4CnzyY0ThbLSQ9fwpUtI6B4asHuAPjq',
+  'https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4Am8mkW6SrITUeLuoskdY0KDa5148lABy26ZHO7',
 ];
 
 const whyChooseUs = [
@@ -222,10 +222,13 @@ function Benefits() {
           Benefits of an Offer in Compromise
         </h2>
         <div className={styles.benefitsGrid}>
-          {benefits.map((benefit, index) => (
-            <div key={index} className={styles.benefitCard}>
-              <span className={styles.benefitIcon}>✓</span>
-              <p className={styles.benefitText}>{benefit}</p>
+          {benefitImages.map((imageUrl, index) => (
+            <div key={index} className={styles.benefitImageCard}>
+              <img
+                src={imageUrl}
+                alt={`Benefit ${index + 1}`}
+                className={styles.benefitImage}
+              />
             </div>
           ))}
         </div>
