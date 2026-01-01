@@ -165,7 +165,11 @@ function Hero() {
 
         <div className={styles.heroPlaceholders}>
           <div className={styles.heroPlaceholderFrame}>
-            <p className={styles.placeholderText}>Image Placeholder 1</p>
+            <img
+              src="https://oizwp2vdbx.ufs.sh/f/xvvPJ5nZe4Am2YyPPGKd0zsSp3U8N9TIWcgoFbuORKwqkGA1"
+              alt="Tax debt relief testimonial"
+              className={styles.heroPlaceholderImage}
+            />
           </div>
           <div className={styles.heroPlaceholderFrame}>
             <p className={styles.placeholderText}>Image Placeholder 2</p>

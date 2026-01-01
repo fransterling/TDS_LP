@@ -169,12 +169,34 @@
   align-items: center;
   justify-content: center;
   min-height: 200px;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.heroPlaceholderFrame:has(.heroPlaceholderImage) {
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .heroPlaceholderFrame:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
+}
+
+.heroPlaceholderFrame:has(.heroPlaceholderImage):hover {
+  background: transparent;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heroPlaceholderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
 .placeholderText {
