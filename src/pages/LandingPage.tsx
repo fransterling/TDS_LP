@@ -158,9 +158,21 @@ function Hero() {
           Apply to See If You Qualify
         </a>
         <p className={styles.heroCtaSubtext}>100% Complimentary Consultation. No Commitments.</p>
-        
+
         <div className={styles.mediaFeatures}>
           <div className="trustindex-widget" data-widget-id="a6914775428f54863e0686a7eef"></div>
+        </div>
+
+        <div className={styles.heroPlaceholders}>
+          <div className={styles.heroPlaceholderFrame}>
+            <p className={styles.placeholderText}>Image Placeholder 1</p>
+          </div>
+          <div className={styles.heroPlaceholderFrame}>
+            <p className={styles.placeholderText}>Image Placeholder 2</p>
+          </div>
+          <div className={styles.heroPlaceholderFrame}>
+            <p className={styles.placeholderText}>Image Placeholder 3</p>
+          </div>
         </div>
       </div>
     </section>
