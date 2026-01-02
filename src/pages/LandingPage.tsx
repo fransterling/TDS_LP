@@ -609,13 +609,14 @@ function ContactForm() {
           <p className={`${styles.sectionSubtitle} ${styles.sectionSubtitleLight}`}>
             100% Complimentary Consultation. No Commitments.
           </p>
-          <div className={styles.contactFormPlaceholder}>
-            <p className={styles.contactFormText}>
-              📋 Survey Form Coming Soon
-            </p>
-            <p className={styles.contactFormNote}>
-              GHL iframe form will be embedded here
-            </p>
+          <div className={styles.contactFormContainer}>
+            <iframe
+              src="YOUR_GHL_FORM_URL_HERE"
+              className={styles.contactFormIframe}
+              title="Contact Form"
+              frameBorder="0"
+              scrolling="no"
+            />
           </div>
         </div>
       </div>
