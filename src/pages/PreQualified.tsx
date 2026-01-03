@@ -88,7 +88,7 @@ export default function PreQualified() {
               <h3 className={styles.trustTitle}>Trusted by Taxpayers Since 2014</h3>
               <div className={styles.trustStats}>
                 <div className={styles.trustStat}>
-                  <p className={styles.trustNumber}>XYZ</p>
+                  <p className={styles.trustNumber}>130+</p>
                   <p className={styles.trustLabel}>5 Star Reviews</p>
                 </div>
                 <div className={styles.trustStat}>
