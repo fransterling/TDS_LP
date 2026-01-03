@@ -30,7 +30,7 @@ export default function PreQualified() {
 
             <div className={styles.smsBox}>
               <p className={styles.smsText}>
-                That being said, you have received a SMS from <strong>%NUMBER%</strong>...
+                You have received a SMS from <strong>%NUMBER%</strong>...
               </p>
               <p className={styles.smsCallout}>
                 Reply "YES" to that text now to confirm your slot.
