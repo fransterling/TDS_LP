@@ -82,14 +82,6 @@ export default function PreQualified() {
           </div>
         </section>
 
-        <section className={styles.sectionAlert}>
-          <div className={styles.container}>
-            <h2 className={styles.alertTitle}>
-              Wait. There's one required step before anything moves forward. Read this carefully.
-            </h2>
-          </div>
-        </section>
-
         <section className={styles.sectionWhite}>
           <div className={styles.container}>
             <div className={styles.trustBox}>
