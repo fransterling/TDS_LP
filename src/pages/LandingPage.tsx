@@ -196,7 +196,10 @@ function OICExplanation() {
             What's an Offer in Compromise and Why It's One of the Best Ways to Settle Tax Debt
           </h2>
           <p className={styles.oicText}>
-            An Offer in Compromise (OIC) is an official IRS program that allows qualified taxpayers to settle their tax debt for less than the full amount owed. It's designed for individuals and business owners who can't realistically pay their full balance before the IRS collection period expires. In their mind, it works because the IRS may accept less than the full balance when collecting something now is better than collecting nothing later. When done correctly, it can provide a faster, more affordable path to resolution than years of payments and penalties.
+            An Offer in Compromise (OIC) is an official IRS program that allows qualified taxpayers to settle their tax debt for less than the full amount owed. It's designed for individuals and business owners who can't realistically pay their full balance before the IRS collection period expires.
+          </p>
+          <p className={`${styles.oicText} ${styles.oicTextSecond}`}>
+            In their mind, it works because the IRS may accept less than the full balance when collecting something now is better than collecting nothing later. When done correctly, it can provide a faster, more affordable path to resolution than years of payments and penalties.
           </p>
         </div>
       </div>

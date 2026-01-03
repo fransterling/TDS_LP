@@ -1012,6 +1012,10 @@
   .whyCardTitle {
     font-size: 1rem;
   }
+
+  .oicTextSecond {
+    margin-top: 1.5rem;
+  }
 }
 
 /* Small Devices (375px - 480px) */
@@ -1173,6 +1177,10 @@
 
   .oicText {
     font-size: 1rem;
+  }
+
+  .oicTextSecond {
+    margin-top: 1.5rem;
   }
 
   .aboutText {
