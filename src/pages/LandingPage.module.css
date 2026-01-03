@@ -412,7 +412,7 @@
   display: grid;
   gap: 1.5rem;
   margin-top: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .benefitImageCard {
@@ -1212,15 +1212,19 @@
   .heroSubheadline {
     font-size: 1.2rem;
   }
-  
+
   .sectionTitle {
     font-size: 2rem;
   }
-  
+
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .testimonialsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .googleReviewsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
