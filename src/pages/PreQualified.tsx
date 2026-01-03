@@ -24,10 +24,6 @@ export default function PreQualified() {
 
         <section className={styles.sectionWhite}>
           <div className={styles.container}>
-            <p className={styles.bodyText}>
-              For most people, this consultation is the moment the stress starts to lift. Not because anything is "sold"… but because the guessing stops.
-            </p>
-
             <div className={styles.smsBox}>
               <p className={styles.smsText}>
                 You have received a SMS from <strong>%NUMBER%</strong>...
