@@ -1219,6 +1219,9 @@
 
   .benefitsGrid {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .testimonialsGrid {
