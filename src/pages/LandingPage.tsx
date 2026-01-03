@@ -645,9 +645,7 @@ function Footer() {
         © {currentYear} Tax Debt Services. All rights reserved.
       </p>
       <nav className={styles.footerLinks}>
-        <a href="#" className={styles.footerLink}>Privacy Policy</a>
-        <a href="#" className={styles.footerLink}>Terms of Service</a>
-        <a href="#contact" className={styles.footerLink}>Contact</a>
+        <a href="https://taxdebtservices.com/privacy-policy/" className={styles.footerLink}>Privacy Policy</a>
       </nav>
     </footer>
   );
