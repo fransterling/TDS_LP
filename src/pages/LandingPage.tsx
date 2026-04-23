@@ -140,7 +140,7 @@ function Hero({ customHeadline, customAttention, customAttentionNormal, customCt
           )}
         </p>
         <h1 className={styles.heroHeadline}>
-          {customHeadline || 'One Call Shows You How Clients Eliminated $9,976, $38,000, Even $159,000 In Tax Debt And Whether You Qualify For A Settlement'}
+          {customHeadline || 'One Call Shows You How Clients Reduced $9,976, $38,000, Even $159,000 In Back Taxes or Tax Debt And Whether You Qualify For A Settlement'}
         </h1>
         <a href={customCtaPhone ? `tel:${customCtaPhone}` : "#contact"} className={styles.heroCta}>
           {customCtaText || "Apply To See If You Qualify"}
