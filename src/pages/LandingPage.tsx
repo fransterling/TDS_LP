@@ -132,12 +132,7 @@ function Hero({ customHeadline, customAttention, customAttentionNormal, customCt
     <section id="hero" className={styles.hero}>
       <div className={styles.heroContent}>
         <p className={customAttention ? styles.heroAttentionCustom : styles.heroAttention}>
-          {customAttention || customAttentionNormal || (
-            <>
-              Attention: Taxpayers & Business Owners With{' '}
-              <span className={styles.heroHeadlineHighlight}>$10,000+ In IRS Debt</span>
-            </>
-          )}
+          {customAttention || customAttentionNormal || 'Attention: Taxpayers & Business Owners With $10,000+ In IRS Debt or Back Taxes'}
         </p>
         <h1 className={styles.heroHeadline}>
           {customHeadline || 'One Call Shows You How Clients Eliminated $9,976, $38,000, Even $159,000 In Tax Debt And Whether You Qualify For A Settlement'}
