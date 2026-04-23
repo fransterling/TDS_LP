@@ -132,6 +132,10 @@
   color: var(--lime-green);
 }
 
+.heroAttentionHighlight {
+  color: #6B8E23;
+}
+
 .heroSubheadline {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
