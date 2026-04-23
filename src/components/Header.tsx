@@ -12,8 +12,8 @@ interface HeaderProps {
 }
 
 export default function Header({ hideCtaButton = false, customCtaText, customCtaPhone }: HeaderProps) {
-  const ctaText = customCtaText || 'Call Now +1 (800) 822-4122';
-  const ctaPhone = customCtaPhone || '+18008224122';
+  const ctaText = customCtaText || 'Call now';
+  const ctaPhone = customCtaPhone || '+18669992007';
 
   return (
     <header className={styles.header}>
