@@ -12,7 +12,7 @@ interface HeaderProps {
 }
 
 export default function Header({ hideCtaButton = false, customCtaText, customCtaPhone }: HeaderProps) {
-  const ctaText = customCtaText || 'Call now';
+  const ctaText = customCtaText || 'Call now +1 (866) 999-2007';
   const ctaPhone = customCtaPhone || '+18669992007';
 
   return (
